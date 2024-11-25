@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    height: 100%;
+}
+
+.main-cont {
+    height: 100vh;
+    background-color: black;
+    position: relative;
+}
+
+.login-cont{
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background: conic-gradient(from 180deg, #568584, #e6e8eb);
+    font-family: 'Arial', sans-serif;
+    padding: 40px;
+    border-radius: 10px;
+
+}
+label{
+    font-weight: 600;
+}
+.login-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.btn-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.btn-cont button{
+    background-color: #042e58;
+    color: white;
+}
+button:hover{
+    background-color: #81b7ec;
+    border: 1px solid black;
+}
+
+
