@@ -1,0 +1,18 @@
+.similarjob-ul-cont{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+
+
+.similarjob-li-card{
+   width: 350px;
+   background: linear-gradient(135deg, #d4e8ff, #5096e7); 
+   list-style: none;
+   padding: 5px;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}

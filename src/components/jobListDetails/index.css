@@ -1,0 +1,138 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.jobItemDetails-main-cont {
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0c4f93, #e9e5e5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+  
+  .jobDetails-card {
+    width: 70%;
+    background: linear-gradient(135deg, #d4e8ff, #5096e7); 
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    margin-top: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  }
+
+  .job-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px;
+  }
+  .logo-title-rating{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .company-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+  
+  .job-title-rating {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .location-employment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .package {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .job-description{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .description-header{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .skills{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .skills-list {
+    display: flex;
+    gap: 30px;
+    list-style: none; 
+    margin-top: 7px;
+  }
+  .skills-list-item{
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+  }
+  
+  .skill-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .life-at-company{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .life-at-company-img {
+    width: 410px;
+    height: 200px;
+  }
+
+  .life-at-company-content{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .p-cont{
+    width: 55%;
+  }
+  
+  .visit-link {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .visit-link:hover {
+    text-decoration: underline;
+  }
+  i{
+    margin-right: 7px;
+  }
+  
+  .similar-jobs-main-cont{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }

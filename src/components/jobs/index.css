@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.job-filter-main-cont{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0c4f93, #e9e5e5);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+}
+
+.filter-cont{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.job-display-cont{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    position: relative;
+    margin-top: 3px;
+}
+
+
+.search-cont{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.no-results-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+
+}
+.msg{
+    color: rgb(54, 92, 154);
+}
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -13%;
+    left: 20%;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    font-size: 50px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .job-filter-cont{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        
+        
+    }  
+    .filter-cont{
+        width: 100px;
+        position: relative;
+        margin-top: 800px;
+    }
+    
+    .job-display-cont{
+        width: 100px;
+
+
+    }
+
+}

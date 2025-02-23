@@ -1,104 +1,93 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import './index.css';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import "./index.css";
 
+const Login = () => {
+  const [allValues, setValues] = useState({
+    username: "",
+    password: "",
+    errorMsg: "",
+  });
 
-const Login = ()=>{
+  const navigate = useNavigate();
+  const token = Cookies.get("jwtToken");
 
-    const [allValues,setValues] = useState({
-        username : "",
-        password : "",
-        errorMsg : ""
-    });
+  const onSubmitUserDetails = async (e) => {
+    e.preventDefault();
 
-    const navigate = useNavigate();
-    const token = Cookies.get("jwtToken");
+    const api = "/login";
+    const userDetails = {
+      username: allValues.username,
+      password: allValues.password,
+    };
 
-    const onSubmitUserDetails = async (e)=>{
-        e.preventDefault();
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userDetails),
+    };
 
-        console.log(allValues.username);
+    try {
+      const response = await fetch(api, options);
+      const data = await response.json();
 
-        const api = "https://apis.ccbp.in/login";
-
-        const userDetails = {
-            username: allValues.username,
-            password: allValues.password 
-        }
-
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(userDetails),
-          }
-
-          try {
-            const response = await fetch(api,options);
-            const data = await response.json(); 
-
-            if(response.ok === true){
-                setValues({...allValues, errorMsg : ""});
-                navigate("/");
-                Cookies.set("jwtToken", data.jwt_token);
-                
-            }
-            else{
-                setValues({...allValues, errorMsg : data.error_msg});
-            }
-            
-          } catch (error) {
-            console.log(error);
-          }
-
-
+      if (response.ok) {
+        Cookies.set("jwtToken", data.jwt_token, { expires: 7 });
+        setValues((prevState) => ({ ...prevState, errorMsg: "" }));
+        navigate("/");
+      } else {
+        setValues((prevState) => ({ ...prevState, errorMsg: data.error_msg }));
+      }
+    } catch (error) {
+      console.log("Login Error:", error);
     }
+  };
 
-    useEffect(()=>{
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
 
-        if(token !== undefined){
-            navigate("/");
-
-        }
-
-
-    },[])
-
-
-    return(
-
-        <div className='main-cont'>
-
-<form className='login-cont' onSubmit={onSubmitUserDetails} >
-
-    <div className="login-icon">
-        <img className='login-img' src="../src/assets/login-img.png" alt="Login Icon" width={"80px"}/>
-   </div>
-
-   <div className="form-group">
-        <label htmlFor="exampleInputWebsite">Website Name</label>
-        <input type="text"className="form-control" id="exampleInputWebsite"/>
-  </div>
-
-   
-   <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Username</label>
-        <input onChange={(e)=>{setValues({...allValues, username : e.target.value})}} type="text"className="form-control" id="exampleInputEmail1" />
-  </div>
-
-  <div className="form-group">
-        <label htmlFor="exampleInputPassword1">Password</label>
-        <input onChange={(e)=>{setValues({...allValues, password : e.target.value})}} type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  
-  <div className='btn-cont'>
-        <button type="submit" className ="btn ">Add</button>
-        <p className='text-danger mt-1'>{allValues.errorMsg}</p>
-  </div>
-</form>
-
-
+  return (
+    <div className="login-page">
+      <form className="login-container" onSubmit={onSubmitUserDetails}>
+        <div className="login-icon">
+          <img src="../src/assets/logo.png" alt="Login Icon" width="100px" />
         </div>
-    )
+  
+        <div className="login-form-group">
+          <label className="login-label" htmlFor="username">Username</label>
+          <input
+            type="text"
+            className="login-input"
+            id="username"
+            value={allValues.username}
+            onChange={(e) => setValues((prevState) => ({ ...prevState, username: e.target.value }))}
+          />
+        </div>
+  
+        <div className="login-form-group">
+          <label className="login-label" htmlFor="password">Password</label>
+          <input
+            type="password"
+            className="login-input"
+            id="password"
+            value={allValues.password}
+            onChange={(e) => setValues((prevState) => ({ ...prevState, password: e.target.value }))}
+          />
+        </div>
+  
+        <div className="login-btn-container">
+          <button type="submit" className="login-btn">Login</button>
+          <p className="login-error-msg">{allValues.errorMsg}</p>
+        </div>
+      </form>
+    </div>
+  );
 }
 
-export default Login;
+  export default Login;
