@@ -89,8 +89,7 @@ const Jobs = () => {
                             </div>
                         ) : allValues.jobArr.length === 0 ? (
                             <div className='no-results-message'>
-                                <img src="
-                                " alt="not-found" width={"400px"}/>
+                                <img src="../src/assets/error-img.png" alt="not-found" width={"400px"}/>
                                 <h4 className='msg'>No Jobs Found</h4>
                                 <p className='msg'>We could not find any job. Try another filters.</p>
                             </div>

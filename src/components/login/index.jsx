@@ -16,7 +16,7 @@ const Login = () => {
   const onSubmitUserDetails = async (e) => {
     e.preventDefault();
 
-    const api = "/login";
+    const api = "https://apis.ccbp.in/login";
     const userDetails = {
       username: allValues.username,
       password: allValues.password,
