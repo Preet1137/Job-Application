@@ -56,7 +56,7 @@ const Login = () => {
     <div className="login-page">
       <form className="login-container" onSubmit={onSubmitUserDetails}>
         <div className="login-icon">
-          <img src="../src/assets/logo.png" alt="Login Icon" width="100px" />
+          <img src="/logo.png" alt="Login Icon" width="100px" />
         </div>
   
         <div className="login-form-group">
